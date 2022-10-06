@@ -9,3 +9,11 @@ def welcome(request):
 
 def lista(request):
     return render(request,"lista.html")
+
+def variabili(request):
+    context={
+        'var1':'Prima varibile',
+        'var2':'Seconda varibile',
+        'var3':'Terza varibile',
+    }
+    return render(request,"variabili.html",context)
