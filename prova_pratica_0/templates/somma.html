@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %} {{ block.super}} | index2 {% endblock title %}
+{% block content %}
+    
+<h1>somma</h1>
+{% if x < y %}
+ <p style="color:red">{{x}}</p>
+ <br>
+ <p>+</p>
+ <br>
+ <p style="color:green">{{y}}</p>
+ <br>
+{% elif x > y %}
+<p style="color:green">{{x}}</p>
+ <br>
+ <p>+</p>
+ <br>
+ <p style="color:red">{{y}}</p>
+ <br>
+{% else %}
+<p>{{x}}</p>
+ <br>
+ <p>+</p>
+ <br>
+ <p>{{y}}</p>
+ <br>
+{% endif %}
+<p>=</p>
+<br>
+<p>{{s}}</p>
+
+
+{% endblock content %}
