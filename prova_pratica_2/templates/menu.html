@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %} {{ block.super}} | manu {% endblock title %}
+{% block content %}
+    <ol>
+        <li> <a href="{% url 'prova_pratica_2:view_a'%}">view_a</a></li>
+        <li> <a href="{% url 'prova_pratica_2:view_b'%}">view_b</a></li>
+    </ol>
+{% endblock content %}

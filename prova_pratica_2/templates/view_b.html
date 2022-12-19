@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} lista auto {% endblock title %}
+{% block content %}
+<ul>
+    {% for key, value in noleggi.items%}
+    <li> {{key}}</li>
+    <ul>
+        {%for v in value%}
+        <li>
+            {%for x in v%}
+             {{x}}
+            {%endfor%}
+        </li>
+        {%endfor%}
+    </ul>   
+    {%endfor%}
+</ul>  
+ {% endblock content %}

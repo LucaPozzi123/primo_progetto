@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %} elenco auto {% endblock title %}
+{% block content %}
+    <ul>
+       {% for automobile in auto%}
+        <li>{{automobile}}</li>
+       {%endfor%}
+    </ul>
+{% endblock content %}
