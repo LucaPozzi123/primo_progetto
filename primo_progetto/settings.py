@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--8c26_k*2g)bl3s2z169m5k7h$rln)!z55=!09k79a0vdcb4ss
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'seconda_app',
     'prova_pratica_0',
     'prova_pratica_2',
+    'corsheaders',
     'news'
 ]
 
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -63,9 +65,8 @@ TEMPLATES = [
                  os.path.join(BASE_DIR, 'seconda_app/templates'),
                  os.path.join(BASE_DIR, 'prova_pratica_0/templates'),
                  os.path.join(BASE_DIR, 'templates'),
-                 os.path.join(BASE_DIR, 'prova_pratica_2/templates')],
-                 os.path.join(BASE_DIR, 'news/templates'),
-            
+                 os.path.join(BASE_DIR, 'prova_pratica_2/templates'),
+                 os.path.join(BASE_DIR, 'news/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
