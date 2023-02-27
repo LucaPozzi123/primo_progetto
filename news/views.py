@@ -55,21 +55,21 @@ def giornalista_api(request,pk):
     return response
 
 def articoli_list_api(request):
-    articoli=Articolo.objects.all()
+    articoli=Articoli.objects.all()
     data={'articoli':list(articoli.values("pk","titolo","contenuto"))}
     response=JsonResponse(data)
     return response
 
 def articoli_api(request,pk):
     try:
-        articoli=Articolo.objects.get(pk=pk)
+        articoli=Articoli.objects.get(pk=pk)
         data={'articolo':{
-            "titolo":articolo.titolo,
-            "contenuto":articolo.contenuto,
+            "titolo":articoli.titolo,
+            "contenuto":articoli.contenuto,
             }
         }
         response=JsonResponse(data)
-    except Articolo.DoesNotExist:
+    except Articoli.DoesNotExist:
         response=JsonResponse({
         "error":{
             "code":404,
@@ -78,5 +78,21 @@ def articoli_api(request,pk):
         status=404)
     return response
 
+class GiornalistaDetailViewCB(DetailView):
+    model=Giornalista
+    template_name="giornalista_detail.html"
 
+class GiornalistaListView(ListView):
+    model=Giornalista
+    template_name="lista_giornalisti.html"
 
+    def get_context_data(self,**kwargs):
+        context=super().get_context_data(**kwargs)
+        context['giornalisti']=Giornalista.objects.all()
+        return context
+
+def tabellaG(request):
+    return render(request,"tabellaG.html")
+
+def tabellaA(request):
+    return render(request,"tabellaA.html")
